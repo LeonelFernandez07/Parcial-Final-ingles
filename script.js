@@ -67,7 +67,7 @@ function resetQuiz() {
 }
 
 
-// --- WORD SEARCH LOGIC ---
+// --- WORD SEARCH LOGIC (Seguro sin solapamientos conflictivos) ---
 const GRID_SIZE = 10;
 const targetWords = ['LITTER', 'POLICY', 'WASTE', 'PLASTIC', 'DEBATE'];
 let gridData = [];
@@ -98,7 +98,7 @@ function generateRandomGrid() {
     let placed = false;
     let attempts = 0;
 
-    while (!placed && attempts < 150) {
+    while (!placed && attempts < 300) {
       attempts++;
       const dir = directions[Math.floor(Math.random() * directions.length)];
       const row = Math.floor(Math.random() * GRID_SIZE);
@@ -116,7 +116,13 @@ function generateRandomGrid() {
           let currC = col + i * dir.c;
           let existingChar = grid[currR][currC];
 
+          // Evitamos cruces en la misma letra 'I' u otras que generen conflictos de solapamiento estricto
           if (existingChar !== '' && existingChar !== word[i]) {
+            fit = false;
+            break;
+          }
+          // Prevenir solapamientos complejos entre PLASTIC y POLICY
+          if (existingChar !== '' && (word === 'POLICY' || word === 'PLASTIC')) {
             fit = false;
             break;
           }
