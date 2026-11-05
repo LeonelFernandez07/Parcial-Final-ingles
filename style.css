@@ -1,0 +1,272 @@
+/* Paleta de colores ecológicos modernos */
+:root {
+  --primary-color: #2b593f;     /* Verde bosque elegante */
+  --secondary-color: #40916c;   /* Verde hoja brillante */
+  --background-color: #f0f4f1;  /* Fondo claro menta/hueso */
+  --card-bg: #ffffff;
+  --text-primary: #1b4332;      /* Texto principal verde oscuro */
+  --text-muted: #52796f;        /* Texto secundario */
+  --accent-color: #d8f3dc;      /* Fondo de opciones */
+  --correct-color: #2d6a4f;     /* Verde éxito */
+  --wrong-color: #d90429;       /* Rojo error */
+  --found-color: #38a3a5;       /* Turquesa para celdas encontradas */
+}
+
+/* Reset y optimización táctil para móviles */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.4;
+}
+
+/* Encabezado fijo y moderno */
+header {
+  background: linear-gradient(135deg, var(--primary-color), #1e3f2d);
+  color: white;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+header p {
+  font-size: 0.85rem;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+/* Navegación móvil tipo pestañas de app */
+nav {
+  display: flex;
+  background-color: var(--card-bg);
+  padding: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  gap: 6px;
+}
+
+.nav-btn {
+  flex: 1;
+  background-color: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 12px 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.nav-btn.active {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Contenedor fluido para pantallas pequeñas */
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 14px;
+  flex: 1;
+}
+
+.active-section {
+  display: block;
+}
+
+.hidden-section {
+  display: none !important;
+}
+
+/* Tarjetas con efecto flotante */
+.card, .quiz-card, .result-card {
+  background-color: var(--card-bg);
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  margin-bottom: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Preguntas y botones del Quiz */
+.question {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.option-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  background-color: #f8faf8;
+  border: 1.5px solid #e0e7e1;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: active 0.1s ease;
+}
+
+.option-btn:active {
+  transform: scale(0.98);
+}
+
+.option-btn.correct {
+  background-color: var(--correct-color) !important;
+  color: white !important;
+  border-color: var(--correct-color) !important;
+}
+
+.option-btn.wrong {
+  background-color: var(--wrong-color) !important;
+  color: white !important;
+  border-color: var(--wrong-color) !important;
+}
+
+/* Resultado del Quiz */
+.result-card {
+  text-align: center;
+  padding: 24px 16px;
+  border-top: 4px solid var(--primary-color);
+}
+
+.restart-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(43, 89, 63, 0.3);
+}
+
+/* Sopa de letras perfectamente escalada a teléfonos */
+.instructions {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 3px;
+  margin: 0 auto 16px auto;
+  width: 100%;
+  max-width: 360px;
+  background: var(--secondary-color);
+  padding: 4px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.grid-cell {
+  aspect-ratio: 1;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+.grid-cell.selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.grid-cell.found {
+  background-color: var(--found-color);
+  color: white;
+}
+
+/* Lista de palabras a encontrar */
+#words-to-find-container h3 {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#words-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+#words-list li {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+#words-list li.found-word {
+  background-color: #e2e8f0;
+  color: #a0aec0;
+  text-decoration: line-through;
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  margin-top: auto;
+  font-size: 0.78rem;
+  opacity: 0.9;
+}

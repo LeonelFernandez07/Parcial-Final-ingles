@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Environmental Responsibility - Be the Teacher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Environmental Responsibility</h1>
+    <p>Living Uruguay 5 — Interactive Class</p>
+  </header>
+
+  <!-- Mobile Navigation Bar -->
+  <nav>
+    <button class="nav-btn active" onclick="showSection('quiz', this)">Interactive Quiz</button>
+    <button class="nav-btn" onclick="showSection('wordsearch', this)">Word Search</button>
+  </nav>
+
+  <main class="container">
+
+    <!-- SECTION 1: QUIZ -->
+    <section id="quiz" class="active-section">
+      <h2>Test Your Knowledge</h2>
+      <p class="instructions" style="margin-bottom: 15px;">Check how well you grasp the core concepts from the topic.</p>
+      
+      <div id="quiz-container">
+        
+        <!-- Question 1 -->
+        <div class="quiz-card" data-question="1">
+          <p class="question">1. When looking at teens and green issues, what is the central debate?</p>
+          <button class="option-btn" onclick="selectAnswer(1, false, this)">Whether school uniforms should be made from recycled cotton.</button>
+          <button class="option-btn" onclick="selectAnswer(1, true, this)">Whether youngsters genuinely care and take action, or just show daily apathy.</button>
+          <button class="option-btn" onclick="selectAnswer(1, false, this)">If public transport should be completely free for teenagers.</button>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-card" data-question="2">
+          <p class="question">2. Which daily habit is frequently pointed out as a negative youth behavior?</p>
+          <button class="option-btn" onclick="selectAnswer(2, true, this)">Littering public spaces and consuming fast fashion recklessly.</button>
+          <button class="option-btn" onclick="selectAnswer(2, false, this)">Building illegal factories in suburban neighborhoods.</button>
+          <button class="option-btn" onclick="selectAnswer(2, false, this)">Refusing to use smartphones or digital devices.</button>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-card" data-question="3">
+          <p class="question">3. How do supporters of youth responsibility prove their point?</p>
+          <button class="option-btn" onclick="selectAnswer(3, false, this)">By saying teenagers pay the highest environmental taxes.</button>
+          <button class="option-btn" onclick="selectAnswer(3, true, this)">By highlighting climate strikes, school recycling projects, and social media awareness.</button>
+          <button class="option-btn" onclick="selectAnswer(3, false, this)">By proving that teens never buy plastic bottles.</button>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-card" data-question="4">
+          <p class="question">4. What does the term 'car emissions' primarily relate to in urban areas?</p>
+          <button class="option-btn" onclick="selectAnswer(4, true, this)">Air pollution and greenhouse gases released by fossil-fuel vehicles.</button>
+          <button class="option-btn" onclick="selectAnswer(4, false, this)">The loud noise traffic makes near high schools.</button>
+          <button class="option-btn" onclick="selectAnswer(4, false, this)">The high cost of gasoline for young drivers.</button>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-card" data-question="5">
+          <p class="question">5. If you want to politely disagree with a classmate during the debate, what's a natural phrasing to use?</p>
+          <button class="option-btn" onclick="selectAnswer(5, false, this)">You are completely wrong and I hate your idea.</button>
+          <button class="option-btn" onclick="selectAnswer(5, true, this)">I see your point, but looking at daily habits, I'd say...</button>
+          <button class="option-btn" onclick="selectAnswer(5, false, this)">Stop talking right now.</button>
+        </div>
+
+        <!-- Final Quiz Result Panel -->
+        <div id="quiz-result" class="result-card hidden-section">
+          <h3>Quiz Completed!</h3>
+          <p id="final-score-text">Your Score: 0 / 5</p>
+          <button class="restart-btn" onclick="resetQuiz()">Try Again</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: WORD SEARCH -->
+    <section id="wordsearch" class="hidden-section">
+      <h2>Vocabulary Word Search</h2>
+      <p class="instructions">Tap letters to find hidden words (horizontal, vertical, diagonal). First tap starts the timer!</p>
+      
+      <!-- Timer & Stats -->
+      <div class="game-stats">
+        <span>⏱️ Time: <strong id="timer">00:00</strong></span>
+        <span>🎯 Found: <strong id="found-count">0</strong> / 5</span>
+      </div>
+
+      <div id="grid-container" class="grid-container"></div>
+      
+      <div id="words-to-find-container">
+        <h3>Words to find:</h3>
+        <ul id="words-list">
+          <li data-word="LITTER">LITTER</li>
+          <li data-word="POLICY">POLICY</li>
+          <li data-word="WASTE">WASTE</li>
+          <li data-word="PLASTIC">PLASTIC</li>
+          <li data-word="DEBATE">DEBATE</li>
+        </ul>
+      </div>
+
+      <!-- Word Search Victory Modal -->
+      <div id="ws-result" class="result-card hidden-section">
+        <h3>🎉 Nailed it!</h3>
+        <p id="ws-final-time">You finished in: 0 seconds</p>
+        <p id="ws-score-msg"></p>
+        <button class="restart-btn" onclick="resetWordSearch()">Play Again</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>English Class Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
